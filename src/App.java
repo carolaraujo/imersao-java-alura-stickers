@@ -8,7 +8,7 @@ import java.util.Map;
 public class App {
     public static void main(String[] args) throws Exception {
 
-        // fazer uma conexão HTTP e buscar os top 250 filmes
+        
         String url = "https://alura-filmes.herokuapp.com/conteudos";
         URI endereco = URI.create(url);
         var client = HttpClient.newHttpClient();
@@ -17,11 +17,11 @@ public class App {
         String body = response.body();
 
 
-        // extrair só os dados que interessam (título, poster, classificação)
+
         var parser = new JsonParser();
         List<Map<String, String>> listaDeFilmes = parser.parse(body);
 
-        // exibir e manipular os dados
+
         for (Map<String, String> filme: listaDeFilmes) {
             System.out.println(filme.get("title"));
             System.out.println(filme.get("image"));
